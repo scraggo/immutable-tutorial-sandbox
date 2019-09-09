@@ -220,6 +220,50 @@ Interestingly, we can use Array prototype methods on objects. The caveat being t
       );
     },
   },
+  {
+    text: `Map asMutable()
+
+Another way to avoid creation of intermediate Immutable maps is to create a mutable copy of this collection. Mutable copies always return this, and thus shouldn't be used for equality. Your function should never return a mutable copy of a collection, only use it internally to create a new collection. If possible, use withMutations as it provides an easier to use API.
+
+    asMutable(): Map<K, V>
+    Discussion
+    Note: if the collection is already mutable, asMutable returns itself.
+
+Note: Not all methods can be used on a mutable collection or within withMutations! Only set and merge may be used mutatively.
+
+Example:
+
+    const myMutableMap = Immutable.Map({ one: 1 }).asMutable();
+    myMutableMap.set("two", 2); // using 'set' to mutate the object
+    return myMutableMap;`,
+    code: () => {
+      const myMutableMap = Immutable.Map({ one: 1 }).asMutable();
+      myMutableMap.set("two", 2); // using 'set' to mutate the object
+      return myMutableMap;
+    },
+  },
+  {
+    text: `Map asImmutable()
+
+The yin to asMutable's yang. Because it applies to mutable collections, this operation is mutable and returns itself. Once performed, the mutable copy has become immutable and can be safely returned from a function.
+
+    asImmutable(): Map<K, V>
+
+Example:
+
+    const myMutableMap = Immutable.Map({ one: 1 }).asMutable();
+    myMutableMap.set("two", 2); // using 'set' to mutate the object
+    const myImmutableMap = myMutableMap.asImmutable();
+    myImmutableMap.set("three", 3); // we're back to being immutable
+    return myImmutableMap;`,
+    code: () => {
+      const myMutableMap = Immutable.Map({ one: 1 }).asMutable();
+      myMutableMap.set("two", 2); // using 'set' to mutate the object
+      const myImmutableMap = myMutableMap.asImmutable();
+      myImmutableMap.set("three", 3); // we're back to being immutable
+      return myImmutableMap;
+    },
+  },
 ];
 
 export default misc;
