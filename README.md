@@ -12,7 +12,17 @@ Examples can be added to, modified, or removed. Check the `src/examples` directo
 
 All examples use immutable > 3.7.0. Immutable 4 has breaking changes and sometimes doesn't conform with these examples.
 
-## Adding an Example
+## Contributing
+
+Make a feature branch and make a pull request to `master`. Areas that need contribution:
+
+- Improve wording on existing examples
+- Add `codeTest`s for existing examples
+- Add an example
+- Some other issues include moving table of contents to sidebar, refactoring using Gatsby spike, etc
+- (Adding the above to the 'Issues' tab)
+
+### Adding an Example
 
 `examples` are an array of objects. Each object has the following signature:
 
