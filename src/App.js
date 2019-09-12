@@ -1,8 +1,13 @@
 import React from "react";
+import Immutable from "immutable";
 import "./App.css";
+
 import { examples } from "./examples";
 import MainSection from "./components/MainSection";
 import TableOfContents from "./components/TableOfContents";
+
+// install immutable dev tools (Chrome -> Dev Tools -> Enable Custom Formatters)
+require("immutable-devtools")(Immutable);
 
 function App() {
   return (
