@@ -169,10 +169,11 @@ Because using set() with an index that’s greater than the List’s current siz
     // Add blackWidow to the List
     avengersList.set(avengersList.size, 'blackWidow');
 
-Note: avengersList.push('blackWidow'); will ALSO achieve the same result.`,
+Note: avengersList.push('blackWidow'); will ALSO achieve the same result since \`.set\` returns a new list.`,
     code: () => {
       const avengersList = Immutable.List(["ironMan", "captainAmerica"]);
-      return avengersList.set(avengersList.size, "blackWidow");
+      avengersList.set(avengersList.size, "blackWidow");
+      return avengersList;
     },
   },
   {

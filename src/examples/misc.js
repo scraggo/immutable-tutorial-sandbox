@@ -264,6 +264,90 @@ Example:
       return myImmutableMap;
     },
   },
+  {
+    text: `Map .mapKeys()
+
+Returns a new Iterable.Keyed of the same type with keys passed through a mapper function.
+
+    mapKeys<M>(mapper: (key?: K, value?: V, iter?: Iterable.Keyed<K, V>) => M,context?: any): Iterable.Keyed<M, V>
+
+    Inherited from Iterable.Keyed#mapKeys
+
+Example
+
+    const myMap = Immutable.Map({ a: 1, b: 2 });
+    return myMap.mapKeys(x => x.toUpperCase());`,
+    code: () => {
+      const myMap = Immutable.Map({ a: 1, b: 2 });
+      return myMap.mapKeys(x => x.toUpperCase());
+    },
+  },
+  {
+    text: `Map .forEach()
+
+The sideEffect is executed for every entry in the Iterable.
+
+    forEach(sideEffect: (value?: V, key?: K, iter?: Iterable<K, V>) => any,context?: any): number
+
+    Inherited from Iterable#forEach
+
+Discussion
+
+Unlike Array#forEach, if any call of sideEffect returns false, the iteration will stop. Returns the number of entries iterated (including the last iteration which returned false).`,
+    code: () => {
+      const myMap = Immutable.Map({ a: 1, b: 2 });
+      const returnValues = [];
+      myMap.forEach((value, key) => {
+        returnValues.push({ key, value });
+      });
+      return returnValues;
+    },
+  },
+  {
+    text: `getIn - What happens if the path doesn't exist and it's deeply nested?
+
+Answer: No problem, it will just return 'undefined'.
+
+    const myMap = Immutable.Map({ a: 1, b: 2 });
+    return typeof myMap.getIn(["a", "q", "whatIsThis"]);`,
+    code: () => {
+      const myMap = Immutable.Map({ a: 1, b: 2 });
+      return typeof myMap.getIn(["a", "q", "whatIsThis"]);
+    },
+  },
+  {
+    text: `Console - Dev Tools Formatters
+
+Without using the immutable-devtools package AND enabling custom formatters in the Chrome Dev Tools settings, console output is unfriendly:
+
+    Immutable.Map({ a: 1, b: 2 }) ->
+
+    Map
+      size: 2
+      __altered: false
+      __hash: undefined
+      __ownerID: undefined
+      _root: ArrayMapNode
+        entries: Array(2)
+          0: (2) ["a", 1]
+          1: (2) ["b", 2]
+          length: 2
+          __proto__: Array(0)
+        ownerID: OwnerID {}
+        __proto__: Object
+      __proto__: KeyedIterable
+
+Here is the improved output:
+
+    Map[2]
+      {"a" => 1}
+      {"b" => 2}
+`,
+    code: () => {
+      console.log(Immutable.Map({ a: 1, b: 2 }));
+      return "See Dev Tools Console";
+    },
+  },
 ];
 
 export default misc;
