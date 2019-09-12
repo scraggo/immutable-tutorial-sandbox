@@ -19,7 +19,8 @@ Make a feature branch and make a pull request to `master`. Areas that need contr
 - Improve wording on existing examples
 - Add `codeTest`s for existing examples
 - Add an example
-- Some other issues include moving table of contents to sidebar, refactoring using Gatsby spike, etc
+- Organize the "misc" examples
+- Some other issues include moving table of contents to sidebar, use Gatsby? etc
 - (Adding the above to the 'Issues' tab)
 
 ### Adding an Example
@@ -44,3 +45,5 @@ Make a feature branch and make a pull request to `master`. Areas that need contr
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 `npm start` to view the application (live reloading.)
+
+Enabling custom formatters in the Chrome Dev Tools settings to see immutable-devtools
