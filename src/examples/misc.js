@@ -348,6 +348,17 @@ Here is the improved output:
       return "See Dev Tools Console";
     },
   },
+  {
+    text: `List .last of empty list
+
+    const avengersList = Immutable.List();
+    return avengersList.last() === undefined;
+`,
+    code: () => {
+      const avengersList = Immutable.List();
+      return avengersList.last() === undefined;
+    },
+  },
 ];
 
 export default misc;
