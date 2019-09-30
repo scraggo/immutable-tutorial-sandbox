@@ -1,7 +1,8 @@
 import React from "react";
-import { examples } from "../utils/reusablePropTypes";
 import ReactMarkdown from "react-markdown";
 import uniqueId from "lodash.uniqueid";
+import { examples } from "../utils/reusablePropTypes";
+import { getSlug } from "../utils/getSlug";
 
 const getCodeTestResultEmoji = result => {
   return result === true ? "✅" : "❌";
@@ -33,11 +34,12 @@ const getAnchorAndText = example => {
   if (!anchor) {
     return textMarkdown;
   }
+  const slug = getSlug(anchor);
 
   return (
     <React.Fragment>
       <div className="anchor-links">
-        <a name={anchor} href={`#${anchor}`}>
+        <a name={slug} href={slug}>
           Permalink
         </a>
         <span>{" | "}</span>
