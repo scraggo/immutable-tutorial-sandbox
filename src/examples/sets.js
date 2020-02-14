@@ -935,6 +935,34 @@ _Note: this is a horrible way of achieving this! It's much easier to use \`fromJ
       return avengersCast.intersect(civilWarCast);
     },
   },
+  {
+    text: `1 https://devdocs.io/immutable/index#orderedset.get orderedset#get
+
+Ordered sets don't use indices, if you try to access with them, it'll return \`undefined\`:
+
+    () => {
+      const ironCapSet = Immutable.OrderedSet(["ironMan", "captainAmerica"]);
+      return ironCapSet.get(0)
+    } // -> undefined`,
+    code: () => {
+      const ironCapSet = Immutable.OrderedSet(["ironMan", "captainAmerica"]);
+      return ironCapSet.get(0);
+    },
+  },
+  {
+    text: `2 https://devdocs.io/immutable/index#orderedset.get orderedset#get
+
+using .get to get a value - if it's found in the orderedset, you'll get it back as is:
+
+    () => {
+      const ironCapSet = Immutable.OrderedSet(["ironMan", "captainAmerica"]);
+      return ironCapSet.get("ironMan");
+    } // -> "ironMan"`,
+    code: () => {
+      const ironCapSet = Immutable.OrderedSet(["ironMan", "captainAmerica"]);
+      return ironCapSet.get("ironMan");
+    },
+  },
 ];
 
 export default sets;
