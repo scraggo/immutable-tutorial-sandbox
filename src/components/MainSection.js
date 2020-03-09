@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import uniqueId from "lodash.uniqueid";
+
 import { examples } from "../utils/reusablePropTypes";
 import { getSlug } from "../utils/getSlug";
 
@@ -39,7 +40,7 @@ const getAnchorAndText = example => {
   return (
     <React.Fragment>
       <div className="anchor-links">
-        <a name={slug} href={slug}>
+        <a id={slug} href={`#${slug}`} name={slug}>
           Permalink
         </a>
         <span>{" | "}</span>
