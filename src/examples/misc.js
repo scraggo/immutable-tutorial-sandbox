@@ -73,7 +73,7 @@ The callback has the identical signature of Array.prototype.map.
       "five",
       "six",
     ]);
-    const mapped = list.map((k, v) => \`k: \${k}, v: \${v}\`);
+    const mapped = list.map((v, k) => \`v: \${v}, k: \${k}\`);
     return mapped;
 `,
     code: () => {
